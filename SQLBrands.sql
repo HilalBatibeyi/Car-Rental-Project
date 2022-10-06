@@ -1,0 +1,5 @@
+﻿CREATE TABLE Brands(
+
+	BrandId INT PRIMARY KEY IDENTITY(1,1),
+	BrandName NVARCHAR(50)
+);
