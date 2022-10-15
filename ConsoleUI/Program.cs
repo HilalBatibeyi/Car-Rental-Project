@@ -25,9 +25,13 @@ namespace ConsoleUI
             carManager.Add(new Car { BrandId = 2, ColorId = 4, DailyPrice = 2095000, Description = "BMW 320i M Sport", ModelYear = 2022 });
             carManager.Add(new Car { BrandId = 6, ColorId = 2, DailyPrice = 1724950, Description = "Volvo XC40", ModelYear = 2021 });
 
-            foreach (var car in carManager.GetAll())
+            var result = carManager.GetCarsByColorId(4);
+            if (result.Success==true)
             {
-                Console.WriteLine(car.Description);
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.Description);
+                }
             }
         }
 
@@ -52,11 +56,19 @@ namespace ConsoleUI
         private static void CarTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-
-            foreach (var car in carManager.GetCarDetails())
+            var result = carManager.GetCarDetails();
+            if (result.Success == true)
             {
-                Console.WriteLine(car.BrandName + " ---> " + car.ColorName + "---> " + car.DailyPrice);
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.BrandName + " ---> " + car.ColorName + "---> " + car.DailyPrice);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+          
         }
     }
 }
