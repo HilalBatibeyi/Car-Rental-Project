@@ -12,11 +12,12 @@ namespace ConsoleUI
         {
             //CarTest();
 
-            BrandTest();
+            //BrandTest();
 
             //ColorTest();
 
-            //CarTest_Add();
+            CarTest_Add();
+
         }
 
         private static void CarTest_Add()
